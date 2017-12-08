@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="WVM.js"></script></head>
+
+<body>
+  <div id="to">
+
+  </div>
+  <script id="app" type="text/html">
+    <div class="test1 test2">
+      <h2 id="test3">绑定</h2>
+      <div>{{title}}</div>
+      <button m-on:click="test">点击</button>
+
+    </div>
+  </script>
+  <script>
+    var wm = new WVM({
+      el:"#to",
+      template: '#app',
+      data: {
+          title:"标题111"
+      },
+      created:function(){
+          console.log(this);
+      },
+        methods:{
+            test: function () {
+                this.title = "标题222"
+            },
+        }
+    })  
+  </script>
+</body>
