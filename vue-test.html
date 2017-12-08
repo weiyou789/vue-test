@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="htmlparser.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+<div id="demo">
+    <div class="main">
+        <p>sdfsdf</p>
+        <span  vtest="1111">{{text}}</span>
+        <p>{{text2}}</p>
+        <input id="but" onclick="test()" type="button" value="重新赋值">
+    </div>
+</div>
+<script>
+    function $(id){
+        return document.getElementById(id);
+    }
+
+  let demo = new Vue({
+    el: '#demo',
+    data: {
+      text: "before",
+      text2:"before",
+      text3:'test'
+    },
+      created(){
+        console.log(this)
+      }
+  })
+
+
+  setTimeout(function(){
+    demo.text = 'after'
+      demo.text3 = 'four'
+  }, 3000)
+
+    function test(){
+        demo.text2 = '重新赋值了'
+    }
+</script>
+</body>
+</html>
